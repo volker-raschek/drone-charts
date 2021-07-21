@@ -69,7 +69,7 @@ steps:
       memory: 25M
   settings:
     branch: master
-    remote: ssh://git@github.com/volker-raschek/drone-helm.git
+    remote: ssh://git@github.com/volker-raschek/drone-charts.git
     force: true
     ssh_key:
       from_secret: ssh_key
@@ -98,4 +98,4 @@ trigger:
   event:
   - push
   repo:
-  - volker.raschek/drone-helm
+  - volker.raschek/drone-charts
