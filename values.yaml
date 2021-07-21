@@ -1,0 +1,513 @@
+# Default values for drone.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: docker.io/drone/drone
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+config:
+  # DRONE_BITBUCKET_CLIENT_ID
+  # String value. Configures the Bitbucket OAuth client id. This is used to
+  # authorize access to Bitbucket on behalf of a Drone user.
+  # https://readme.drone.io/server/reference/drone-bitbucket-client-id/
+  # DRONE_BITBUCKET_CLIENT_ID: ""
+
+  # DRONE_BITBUCKET_CLIENT_SECRET
+  # String value. Configures the Bitbucket OAuth client secret. This is used to
+  # authorize access to Bitbucket on behalf of a Drone user.
+  # https://readme.drone.io/server/reference/drone-bitbucket-client-secret/
+  # DRONE_BITBUCKET_CLIENT_SECRET: ""
+
+  # DRONE_BITBUCKET_DEBUG
+  # Optional boolean value. Configures detailed trace logging for the Bitbucket
+  # authentication provide. This should be used to troubleshoot problems with
+  # login when installing Drone serve
+  # https://readme.drone.io/server/reference/drone-bitbucket-debug/
+  # DRONE_BITBUCKET_DEBUG: ""
+
+  # DRONE_CLEANUP_DEADLINE_PENDING
+  # Optional duration value. Configures the interval after which a pending job
+  # will be killed by the reaper.
+  # https://readme.drone.io/server/reference/drone-cleanup-deadline-pending/
+  # DRONE_CLEANUP_DEADLINE_PENDING: ""
+
+  # DRONE_CLEANUP_DEADLINE_RUNNING
+  # Optional duration value. Configures the interval after which a running job
+  # will be killed by the reaper.
+  # https://readme.drone.io/server/reference/drone-cleanup-deadline-running/
+  # DRONE_CLEANUP_DEADLINE_RUNNING: ""
+
+  # DRONE_CLEANUP_DISABLED
+  # Boolean value disables the reaper. The reaper finds and kills zombie jobs
+  # that are permanently stuck in a pending or running state.
+  # https://readme.drone.io/server/reference/drone-cleanup-disabled/
+  # DRONE_CLEANUP_DISABLED: ""
+
+  # DRONE_CLEANUP_INTERVAL
+  # Optional duration value. Configures the interval at which the reaper is run.
+  # The reaper finds and kills zombie jobs that are permanently stuck in a
+  # pending or running state.
+  # https://readme.drone.io/server/reference/drone-cleanup-interval/
+
+  # DRONE_CONVERT_PLUGIN_ENDPOINT
+  # String value configures the endpoint for the conversion plugin, used to
+  # automatically convert or modify configuration files.
+  # https://readme.drone.io/server/reference/drone-convert-plugin-endpoint/
+  # DRONE_CONVERT_PLUGIN_ENDPOINT: ""
+
+  # DRONE_CONVERT_PLUGIN_EXTENSION
+  # String value configures the file extension that should be used with the
+  # conversion plugin. This configuration parameter is used to reduce
+  # un-necessary traffic to the conversion plugin for file types that will not
+  # otherwise be converted. It is completely optional.
+  # https://readme.drone.io/server/reference/drone-convert-plugin-extension/
+  # DRONE_CONVERT_PLUGIN_EXTENSION: ""
+
+  # DRONE_CONVERT_PLUGIN_SECRET
+  # Shared secret used to create an http-signature. The conversion plugin uses
+  # the shared secret to verify request authenticity.
+  # https://readme.drone.io/server/reference/drone-convert-plugin-secret/
+  # DRONE_CONVERT_PLUGIN_SECRET: ""
+
+  # DRONE_CONVERT_PLUGIN_SKIP_VERIFY
+  # Boolean value disables TLS verification when establishing a connection to
+  # the remote conversion plugin.
+  # https://readme.drone.io/server/reference/drone-convert-plugin-skip-verify/
+  # DRONE_CONVERT_PLUGIN_SKIP_VERIFY: ""
+
+  # DRONE_COOKIE_SECRET
+  # Optional string value. Configures the secret key used to sign authentication
+  # cookies. If unset, a random value is generated each time the server is
+  # started.
+  # https://readme.drone.io/server/reference/drone-cookie-secret/
+  # DRONE_COOKIE_SECRET: ""
+
+  # DRONE_COOKIE_TIMEOUT
+  # Optional duration value. Configures the authentication cookie expiration.
+  # This value is optional,
+  # https://readme.drone.io/server/reference/drone-cookie-timeout/
+  # DRONE_COOKIE_TIMEOUT: ""
+
+  # DRONE_CRON_DISABLED
+  # Boolean value disables the cron scheduler.
+  # https://readme.drone.io/server/reference/drone-cron-disabled/
+  # DRONE_CRON_DISABLED: ""
+
+  # DRONE_CRON_INTERVAL
+  # Optional duration value. Configures the interval at which the cron scheduler
+  # is run. The cron scheduler is not meant to be accurate and batches pending
+  # jobs.
+  # https://readme.drone.io/server/reference/drone-cron-interval/
+  # DRONE_CRON_INTERVAL: ""
+
+  # DRONE_DATABASE_DATASOURCE
+  # Optional string value. Configures the database connection string. The
+  # default value is the path of the embedded sqlite database file.
+  # https://docs.drone.io/server/reference/drone-database-datasource/
+  # DRONE_DATABASE_DATASOURCE: ""
+
+  # DRONE_DATABASE_DRIVER
+  # Optional String value. Configures the database driver name. The default
+  # driver is sqlite. Alternate drivers are postgres and mysql.
+  # https://docs.drone.io/server/reference/drone-database-driver/
+  # DRONE_DATABASE_DRIVER: ""
+
+  # DRONE_DATABASE_SECRET
+  # Optional string value. Configures the secret key used to encrypt secrets in
+  # the database. Encryption is disabled by default and must be configured
+  # before the system is first used.
+  # https://docs.drone.io/server/reference/drone-database-secret/
+  # DRONE_DATABASE_SECRET: ""
+
+  # DRONE_GIT_ALWAYS_AUTH
+  # Optional boolean value. Configures Drone to authenticate when cloning public
+  # repositories. This is only required when your source code management system
+  # (e.g. GitHub Enterprise) has private mode enabled.
+  # https://docs.drone.io/server/reference/drone-git-always-auth/
+  # DRONE_GIT_ALWAYS_AUTH: ""
+
+  # DRONE_GIT_PASSWORD
+  # Optional string value. Overrides the default git username and password used
+  # to authenticate and clone private repositories.
+  # https://readme.drone.io/server/reference/drone-git-password/
+  # DRONE_GIT_PASSWORD: ""
+
+  # DRONE_GIT_USERNAME
+  # Optional string value. Overrides the default git username and password used
+  # to authenticate and clone private repositories.
+  # https://docs.drone.io/server/reference/drone-git-username/
+  # DRONE_GIT_USERNAME
+
+  # DRONE_GITEA_CLIENT_ID
+  # String value configures the Gitea OAuth client id. This is used to authorize
+  # access to Gitea on behalf of a Drone user.
+  # https://docs.drone.io/server/reference/drone-gitea-client-id/
+  # DRONE_GITEA_CLIENT_ID: ""
+
+  # DRONE_GITEA_CLIENT_SECRET
+  # String value configures the Gitea OAuth client secret. This is used to
+  # authorize access to Gitea on behalf of a Drone user.
+  # https://docs.drone.io/server/reference/drone-gitea-client-secret/
+  # DRONE_GITEA_CLIENT_SECRET: ""
+
+  # DRONE_GITEA_SERVER
+  # String value configures the Gitea server address.
+  # https://docs.drone.io/server/reference/drone-gitea-server/
+  # DRONE_GITEA_SERVER: ""
+
+  # DRONE_GITHUB_CLIENT_SECRET
+  # String value configures the GitHub oauth client secret. This is used to
+  # authorize access to GitHub on behalf of a Drone user.
+  # https://docs.drone.io/server/reference/drone-github-client-secret/
+  # DRONE_GITHUB_CLIENT_SECRET: ""
+
+  # DRONE_GITHUB_SCOPE
+  # String value provides a comma-separated list of OAuth scopes.
+  # https://docs.drone.io/server/reference/drone-github-scope/
+  # DRONE_GITHUB_SCOPE: ""
+
+  # DRONE_GITHUB_SERVER
+  # String value configures the GitHub server address.
+  # https://docs.drone.io/server/reference/drone-github-server/
+  # DRONE_GITHUB_SERVER: ""
+
+  # DRONE_GITHUB_SKIP_VERIFY
+  # Boolean value disables TLS verification when establishing a connection to
+  # the remote GitHub server.
+  # https://docs.drone.io/server/reference/drone-github-skip-verify/
+  # DRONE_GITHUB_SKIP_VERIFY: ""
+
+  # DRONE_GITLAB_CLIENT_ID
+  # String value configures the GitLab OAuth client id. This is used to
+  # authorize access to GitLab on behalf of a Drone user.
+  # https://docs.drone.io/server/reference/drone-gitlab-client-id/
+  # DRONE_GITLAB_CLIENT_ID: ""
+
+  # DRONE_GITLAB_CLIENT_SECRET
+  # String value configures the GitLab OAuth client secret. This is used to
+  # authorize access to GitLab on behalf of a Drone user.
+  # https://docs.drone.io/server/reference/drone-gitlab-client-secret/
+  # DRONE_GITLAB_CLIENT_SECRET: ""
+
+  # DRONE_GITLAB_SERVER
+  # String value configures the GitLab server address.
+  # https://docs.drone.io/server/reference/drone-gitlab-server/
+  # DRONE_GITLAB_SERVER: ""
+
+  # DRONE_GITLAB_SKIP_VERIFY
+  # Boolean value disables TLS verification when establishing a connection to
+  # the remote GitLab server. The default value is false.
+  # https://docs.drone.io/server/reference/drone-gitlab-skip-verify/
+  # DRONE_GITLAB_SKIP_VERIFY: ""
+
+  # DRONE_GOGS_SERVER
+  # String value configures the Gogs server address.
+  # https://docs.drone.io/server/reference/drone-gogs-server/
+  # DRONE_GOGS_SERVER: ""
+
+  # DRONE_GOGS_SKIP_VERIFY
+  # Boolean value configures TLS verification when establishing a connection to
+  # the remote Gogs server. The default value is false.
+  # https://docs.drone.io/server/reference/drone-gogs-skip-verify/
+  # DRONE_GOGS_SKIP_VERIFY: ""
+
+  # DRONE_JSONNET_ENABLED
+  # Boolean value configures Drone to automatically convert configuration files
+  # ending in .jsonnet to yaml. This is disabled by default and should only be
+  # enabled in trusted environments.
+  # https://docs.drone.io/server/reference/drone-jsonnet-enabled/
+  # DRONE_JSONNET_ENABLED: ""
+
+  # DRONE_LICENSE
+  # Optional string value provides the filepath of the Drone Enterprise license
+  # key. This is used to unlock the Drone Enterprise edition. If you are running
+  # the Drone server using docker-compose or Kubernetes or you have configured
+  # Drone using Yaml, you can provide the server with the license key as an
+  # environment variable.
+  # https://docs.drone.io/server/reference/drone-license/
+  # DRONE_LICENSE: |
+
+  # DRONE_LOGS_COLOR
+  # Enables color formatting of the logs; used in conjunction with pretty
+  # printed logs. This configuration parameter is of type boolean and is
+  # optional.
+  # https://docs.drone.io/server/reference/drone-logs-color/
+  # DRONE_LOGS_COLOR: ""
+
+  # DRONE_LOGS_DEBUG
+  # Enables debug logging. This configuration parameter is of type boolean and
+  # is optional.
+  # https://docs.drone.io/server/reference/drone-logs-debug/
+  # DRONE_LOGS_DEBUG: ""
+
+  # DRONE_LOGS_PRETTY
+  # Enables human-readable logs as an alternate to the default json format. This
+  # configuration parameter is of type boolean and is optional.
+  # https://docs.drone.io/server/reference/drone-logs-pretty/
+  # DRONE_LOGS_PRETTY: ""
+
+  # DRONE_LOGS_TRACE
+  # Enables trace logging. This configuration parameter is of type boolean and
+  # is optional.
+  # https://docs.drone.io/server/reference/drone-logs-trace/
+  # DRONE_LOGS_TRACE
+
+  # DRONE_PROMETHEUS_ANONYMOUS_ACCESS
+
+  # Boolean value configures the Prometheus metrics endpoint to allow anonymous
+  # access. This is disabled by default and requires authentication token to
+  # access the metrics endpoint.
+  # https://docs.drone.io/server/reference/drone-prometheus-anonymous-access/
+  # DRONE_PROMETHEUS_ANONYMOUS_ACCES: ""
+
+  # DRONE_REGISTRATION_CLOSED
+  # Boolean value disables open registration. If enabled, a system administrator
+  # must create user accounts before the user can login.
+  # https://docs.drone.io/server/reference/drone-registration-closed/
+  # DRONE_REGISTRATION_CLOSED: ""
+
+  # DRONE_REPOSITORY_FILTER
+  # Optional comma-separated list of accounts, used to limit which repositories
+  # are synchronized between your source control management system and Drone.
+  # Note that this variable must be set before your first login. Setting this
+  # variable after having already authenticated and synchronized your account
+  # has no effect.
+  # https://docs.drone.io/server/reference/drone-repository-filter/
+  # DRONE_REPOSITORY_FILTER: ""
+
+  # DRONE_RPC_SECRET
+  # Required literal value provides the Drone shared secret. This is used to
+  # authenticate the RPC connection to the server. The server and runners must
+  # be provided the same secret value.
+  # https://docs.drone.io/server/reference/drone-rpc-secret/
+  # DRONE_RPC_SECRET: ""
+
+  # DRONE_S3_BUCKET
+  # Optional string value configures the S3 bucket name.
+  # https://docs.drone.io/server/reference/drone-s3-bucket/
+  # DRONE_S3_BUCKET: ""
+
+  # DRONE_S3_ENDPOINT
+  # Optional string value configures the S3 endpoint. The is often used with
+  # S3-compatible services such as Minio.
+  # https://docs.drone.io/server/reference/drone-s3-endpoint/
+  # DRONE_S3_ENDPOINT: ""
+
+  # DRONE_S3_PATH_STYLE
+  # Optional boolean value configures the S3 client to use path style. The is
+  # often used with S3-compatible services such as Minio.
+  # https://docs.drone.io/server/reference/drone-s3-path-style/
+  # DRONE_S3_PATH_STYLE: ""
+
+  # DRONE_S3_PREFIX
+  # Optional string value configures the S3 client to store log files in a
+  # bucket subdirectory. If unset log files are stored in the bucket root.
+  # https://docs.drone.io/server/reference/drone-s3-prefix/
+  # DRONE_S3_PREFIX: ""
+
+  # DRONE_SERVER_HOST
+  # Required string value configures the user-facing hostname. This value is
+  # used to create webhooks and redirect urls. It has no actual impact on
+  # serving traffic.
+  # https://docs.drone.io/server/reference/drone-server-host/
+  # DRONE_SERVER_HOST: ""
+
+  # DRONE_SERVER_PROTO
+  # Required string value configures the user-facing protocol. This value is
+  # used to create webhooks and redirect urls. It has no actual impact on
+  # serving traffic.
+  # https://docs.drone.io/server/reference/drone-server-proto/
+  # DRONE_SERVER_PROTO: ""
+
+  # DRONE_SERVER_PROXY_HOST
+  # Optional string value used to create webhooks that are routed through an
+  # alternate proxy server. The target use case for this setting is when your
+  # server is behind a firewall and you need GitHub webhooks to route through a
+  # public proxy.
+  # https://docs.drone.io/server/reference/drone-server-proxy-host/
+  # DRONE_SERVER_PROXY_HOST: ""
+
+  # DRONE_SERVER_PROXY_PROTO
+  # Optional string value used to create webhooks that are routed through an
+  # alternate proxy server. The target use case for this setting is when your
+  # server is behind a firewall and you need GitHub webhooks to route through a
+  # public proxy.
+  # https://docs.drone.io/server/reference/drone-server-proxy-proto/
+  # DRONE_SERVER_PROXY_PROTO: ""
+
+  # DRONE_STARLARK_ENABLED
+  # Boolean value configures Drone to automatically execute files ending in
+  # .star to provide your pipeline configurations. This is disabled by default.
+  # This feature requires Drone server version 1.10.0 or higher.
+  # https://docs.drone.io/server/reference/drone-starlark-enabled/
+  # DRONE_STARLARK_ENABLED: ""
+
+  # DRONE_STASH_CONSUMER_KEY
+  # String value configures your Bitbucket Server consumer key.
+  # https://docs.drone.io/server/reference/drone-stash-consumer-key/
+  # DRONE_STASH_CONSUMER_KEY: ""
+
+  # DRONE_STASH_PRIVATE_KEY
+  # String value configures the path to your Bitbucket Server private key file.
+  # Note that this file needs to also be mounted into the Drone server container
+  # as a volume.
+  # https://docs.drone.io/server/reference/drone-stash-private-key/
+  # DRONE_STASH_PRIVATE_KEY: ""
+
+  # DRONE_STASH_SERVER
+  # String value configures the Bitbucket Server address.
+  # https://docs.drone.io/server/reference/drone-stash-server/
+  # DRONE_STASH_SERVER: ""
+
+  # DRONE_STASH_SKIP_VERIFY
+  # Boolean value disables TLS verification when establishing a connection to
+  # the remote Bitbucket server. The default value is false.
+  # https://docs.drone.io/server/reference/drone-stash-skip-verify/
+  # DRONE_STASH_SKIP_VERIFY: ""
+
+  # DRONE_STATUS_DISABLED
+  # Boolean value disables the system from using the status API to communicate
+  # build state to the source control management system. The default value is
+  # false
+  # https://docs.drone.io/server/reference/drone-status-disabled/
+  # DRONE_STATUS_DISABLED: ""
+
+  # DRONE_STATUS_NAME
+  # String value configures the status name used to communicate build state to
+  # the source control management system. The default value is
+  # continuous-integration/drone.
+  # https://docs.drone.io/server/reference/drone-status-name/
+  # DRONE_STATUS_NAME: ""
+
+  # DRONE_TLS_AUTOCERT
+  # Automatically generates an SSL certificate using Lets Encrypt, and
+  # configures the server to accept HTTPS requests. This configuration parameter
+  # is of type boolean and is optional, and is disabled by default.
+  # https://docs.drone.io/server/reference/drone-tls-autocert/
+  # DRONE_TLS_AUTOCERT: ""
+
+  # DRONE_TLS_CERT
+  # Path to an SSL certificate used by the server to accept HTTPS requests. This
+  # configuration parameter is of type string and is optional.
+  # Please note that the cert file should be the concatenation of the server’s
+  # certificate, any intermediates, and the certificate authority’s certificate
+  # https://docs.drone.io/server/reference/drone-tls-cert/
+  # DRONE_TLS_CERT: ""
+
+  # DRONE_TLS_KEY
+  # Path to an SSL certificate key used by the server to accept HTTPS requests.
+  # This configuration parameter is of type string and is optional.
+  # https://docs.drone.io/server/reference/drone-tls-key/
+  # DRONE_TLS_KEY: ""
+
+  # DRONE_USER_CREATE
+  # Optional user account that should be created on startup. This should be used
+  # to seed the system with an administrative account. It can be a real account
+  # (i.e. a real GitHub user) or it can be a machine account.
+  # https://docs.drone.io/server/reference/drone-user-create/
+  # DRONE_USER_CREATE: ""
+
+  # DRONE_VALIDATE_PLUGIN_ENDPOINT
+  # String value configures the endpoint for the validation plugin, used to
+  # enforce custom linting rules for your pipeline configuration.
+  # https://docs.drone.io/server/reference/drone-validate-plugin-endpoint/
+  # DRONE_VALIDATE_PLUGIN_ENDPOINT: ""
+
+  # DRONE_VALIDATE_PLUGIN_SECRET
+  # Shared secret used to create an http-signature. The validation plugin uses
+  # the shared secret to verify request authenticity.
+  # https://docs.drone.io/server/reference/drone-validate-plugin-secret/
+  # DRONE_VALIDATE_PLUGIN_SECRET: ""
+
+  # DRONE_VALIDATE_PLUGIN_SKIP_VERIFY
+  # Boolean value disables TLS verification when establishing a connection to
+  # the remote validation plugin. The default value is false.
+  # https://docs.drone.io/server/reference/drone-validate-plugin-skip-verify/
+  # DRONE_VALIDATE_PLUGIN_SKIP_VERIFY: ""
+
+  # DRONE_WEBHOOK_ENDPOINT
+  # String value configures a comma-separated list of webhook endpoints, to
+  # which global system events are delivered.
+  # https://docs.drone.io/server/reference/drone-webhook-endpoint/
+  # DRONE_WEBHOOK_ENDPOINT: ""
+
+  # DRONE_WEBHOOK_EVENTS
+  # Optional string value provides a comma-separated list of events and actions
+  # that trigger webhooks. If unset all events and actions trigger webhooks.
+  # https://docs.drone.io/server/reference/drone-webhook-events/
+  # DRONE_WEBHOOK_EVENTS: ""
+
+  # DRONE_WEBHOOK_SECRET
+  # Shared secret used to create an http-signature. The webhook recipient can
+  # use the shared secret to verify request authenticity.
+  # https://docs.drone.io/server/reference/drone-webhook-secret/
+  # DRONE_WEBHOOK_SECRET: ""
+
+  # DRONE_WEBHOOK_SKIP_VERIFY
+  # Boolean value disables TLS verification when establishing a connection to
+  # the remote webhook address. The default value is false.
+  # https://docs.drone.io/server/reference/drone-webhook-skip-verify/
+  # DRONE_WEBHOOK_SKIP_VERIFY: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: "nginx"
+  annotations:
+    # kubernetes.io/ingress.class is a deprecated annotation:
+    # https://kubernetes.io/docs/concepts/services-networking/ingress/#deprecated-annotation
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    # cert-manager.io/issuer: letsencrypt
+  hosts:
+  - host: "your-hostname"
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  tls:
+  - secretName: "your-tls-secret"
+    hosts:
+    - "your-hostname"
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
