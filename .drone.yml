@@ -17,6 +17,15 @@ steps:
       cpu: 50
       memory: 50M
 
+- name: markdown lint
+  commands:
+  - markdownlint *.md
+  image: docker.io/tmknom/markdownlint:0.23.1
+  resources:
+    limits:
+      cpu: 50
+      memory: 50M
+
 - name: email-notification
   environment:
     PLUGIN_HOST:
