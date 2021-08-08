@@ -27,7 +27,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-config:
+config: {}
   # DRONE_BITBUCKET_CLIENT_ID
   # String value. Configures the Bitbucket OAuth client id. This is used to
   # authorize access to Bitbucket on behalf of a Drone user.
@@ -507,3 +507,14 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# persistence is only required when config.DATABASE_DRIVER is not sqlite3 or
+# undefined.
+persistence:
+  # existingClaim:
+  size: 5Gi
+  accessModes:
+  - ReadWriteOnce
+  labels: {}
+  annotation: {}
+  # storageClass:

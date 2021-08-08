@@ -97,8 +97,7 @@ be the options passed via the `--set` flag of the `helm install` command.
 
 ## Missing features
 
-1. Add Persistent Volume for the SQLite database
-2. Support postgres, maria and mysql database directly as helm dependency if as
+1. Support postgres, maria and mysql database directly as helm dependency if as
    `DATABASE_DRIVER` an other instead of `sqlite` has been selected.
    Alternatively can be passed a completely custom string to establish a
    database connection, when the database is running outside the cluster.
