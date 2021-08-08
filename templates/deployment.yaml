@@ -38,12 +38,12 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- if eq (default "sqlite3" .Values.config.DRONE_DATABASE_DRIVER) "sqlite3" }}
+          {{- if .Values.config.DRONE_DATABASE_DRIVER | default "sqlite3" | eq "sqlite3" }}
           volumeMounts:
           - name: data
             mountPath: {{ default "/data/database.sqlite" .Values.config.DRONE_DATABASE_DATASOURCE | dir }}
           {{- end }}
-      {{- if and (eq (default "sqlite3" .Values.config.DRONE_DATABASE_DRIVER) "sqlite3") .Values.persistence.existingClaim }}
+      {{- if and (.Values.config.DRONE_DATABASE_DRIVER | default "sqlite3" | eq "sqlite3") .Values.persistence.existingClaim }}
       volumes:
       - name: data
         persistentVolumeClaim:
