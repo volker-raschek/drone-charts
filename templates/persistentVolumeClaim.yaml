@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: drone
+  name: {{ include "drone.fullname" . }}
 spec:
   accessModes:
   {{- range .Values.persistence.accessModes }}
