@@ -67,5 +67,5 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-          claimName: drone
+          claimName: {{ include "drone.fullname" . }}
       {{- end }}
