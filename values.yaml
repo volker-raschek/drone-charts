@@ -183,6 +183,12 @@ config: {}
   # https://docs.drone.io/server/reference/drone-github-client-secret/
   # DRONE_GITHUB_CLIENT_SECRET: ""
 
+  # DRONE_GITHUB_CLIENT_ID
+  # String value configures the GitHub OAuth client id. This is used to
+  # authorize access to GitHub on behalf of a Drone user.
+  # https://docs.drone.io/server/reference/drone-github-client-id/
+  # DRONE_GITHUB_CLIENT_ID: ""
+
   # DRONE_GITHUB_SCOPE
   # String value provides a comma-separated list of OAuth scopes.
   # https://docs.drone.io/server/reference/drone-github-scope/
