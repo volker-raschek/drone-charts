@@ -28,3 +28,5 @@
 # customized values
 values2.yml
 values2.yaml
+# helm packages
+*.tgz
