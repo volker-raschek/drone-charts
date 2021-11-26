@@ -516,7 +516,7 @@ tolerations: []
 
 affinity: {}
 
-# persistence is only required when config.DATABASE_DRIVER is not sqlite3 or
+# persistence is only required when config.DATABASE_DRIVER is sqlite3 or
 # undefined.
 persistence:
   # existingClaim:
