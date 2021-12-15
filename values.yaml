@@ -441,6 +441,13 @@ config: {}
   # https://docs.drone.io/server/reference/drone-user-create/
   # DRONE_USER_CREATE: ""
 
+  # DRONE_USER_FILTER
+  # Optional comma-separated list of accounts. Registration is limited to users
+  # in this list, or users that are members of organizations included in this
+  # list.
+  # https://docs.drone.io/server/reference/drone-user-filter/
+  # DRONE_USER_FILTER: ""
+
   # DRONE_VALIDATE_PLUGIN_ENDPOINT
   # String value configures the endpoint for the validation plugin, used to
   # enforce custom linting rules for your pipeline configuration.

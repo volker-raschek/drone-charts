@@ -88,6 +88,7 @@ be the options passed via the `--set` flag of the `helm install` command.
 | `config.DRONE_TLS_CERT`                                 | [Documentation](https://docs.drone.io/server/reference/drone-tls-cert)                    |
 | `config.DRONE_TLS_KEY`                                  | [Documentation](https://docs.drone.io/server/reference/drone-tls-key)                     |
 | `config.DRONE_USER_CREATE`                              | [Documentation](https://docs.drone.io/server/reference/drone-user-create)                 |
+| `config.DRONE_USER_FILTER`                              | [Documentation](https://docs.drone.io/server/reference/drone-user-filter)                 |
 | `config.DRONE_VALIDATE_PLUGIN_ENDPOINT`                 | [Documentation](https://docs.drone.io/server/reference/drone-validate-plugin-endpoint)    |
 | `config.DRONE_VALIDATE_PLUGIN_SECRET`                   | [Documentation](https://docs.drone.io/server/reference/drone-validate-plugin-secret)      |
 | `config.DRONE_VALIDATE_PLUGIN_SKIP_VERIFY`              | [Documentation](https://docs.drone.io/server/reference/drone-validate-plugin-skip-verify) |
