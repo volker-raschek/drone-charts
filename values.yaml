@@ -183,6 +183,22 @@ config: {}
   # https://docs.drone.io/server/reference/drone-gitea-skip-verify/
   # DRONE_GITEA_SKIP_VERIFY: ""
 
+  # DRONE_GITEE_REDIRECT_URL
+  # String value configures the Gitee OAuth authorize redirect url.
+  # https://docs.drone.io/server/reference/drone-gitee-redirect-url/
+  # DRONE_GITEE_REDIRECT_URL: ""
+
+  # DRONE_GITEE_SCOPE
+  # String value provides a comma-separated list of OAuth scopes.
+  # https://docs.drone.io/server/reference/drone-gitee-scope/
+  # DRONE_GITEE_SCOPE: ""
+
+  # DRONE_GITEE_SKIP_VERIFY
+  # Boolean value disables TLS verification when establishing a connection to
+  # the remote Gitee server.
+  # https://docs.drone.io/server/reference/drone-gitee-skip-verify/
+  # DRONE_GITEE_SKIP_VERIFY: ""
+
   # DRONE_GITHUB_CLIENT_SECRET
   # String value configures the GitHub oauth client secret. This is used to
   # authorize access to GitHub on behalf of a Drone user.
