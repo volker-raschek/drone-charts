@@ -48,6 +48,7 @@ be the options passed via the `--set` flag of the `helm install` command.
 | `config.DRONE_GITEA_CLIENT_ID`                          | [Documentation](https://docs.drone.io/server/reference/drone-gitea-client-id)             |
 | `config.DRONE_GITEA_CLIENT_SECRET`                      | [Documentation](https://docs.drone.io/server/reference/drone-gitea-client-secret)         |
 | `config.DRONE_GITEA_SERVER`                             | [Documentation](https://docs.drone.io/server/reference/drone-gitea-server)                |
+| `config.DRONE_GITEA_SKIP_VERIFY`                        | [Documentation](https://docs.drone.io/server/reference/drone-gitea-skip-verify)           |
 | `config.DRONE_GITHUB_CLIENT_SECRET`                     | [Documentation](https://docs.drone.io/server/reference/drone-github-client-secret)        |
 | `config.DRONE_GITHUB_SCOPE`                             | [Documentation](https://docs.drone.io/server/reference/drone-github-scope)                |
 | `config.DRONE_GITHUB_SERVER`                            | [Documentation](https://docs.drone.io/server/reference/drone-github-server)               |

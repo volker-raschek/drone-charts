@@ -177,6 +177,12 @@ config: {}
   # https://docs.drone.io/server/reference/drone-gitea-server/
   # DRONE_GITEA_SERVER: ""
 
+  # DRONE_GITEA_SKIP_VERIFY
+  # Boolean value disables tls verification when establishing a connection to
+  # the remote Gitea server.
+  # https://docs.drone.io/server/reference/drone-gitea-skip-verify/
+  # DRONE_GITEA_SKIP_VERIFY: ""
+
   # DRONE_GITHUB_CLIENT_SECRET
   # String value configures the GitHub oauth client secret. This is used to
   # authorize access to GitHub on behalf of a Drone user.
