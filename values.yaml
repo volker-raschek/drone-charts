@@ -134,6 +134,13 @@ config: {}
   # https://docs.drone.io/server/reference/drone-database-driver/
   # DRONE_DATABASE_DRIVER: ""
 
+  # DRONE_DATABASE_MAX_CONNECTIONS
+  # Optional numeric value. Set the maximum number of open DB connections from
+  # Drone. It is set to 0 by default and must be configured before the system is
+  # first used.
+  # https://docs.drone.io/server/reference/drone-database-max-connections/
+  # DRONE_DATABASE_MAX_CONNECTIONS: ""
+
   # DRONE_DATABASE_SECRET
   # Optional string value. Configures the secret key used to encrypt secrets in
   # the database. Encryption is disabled by default and must be configured
@@ -199,17 +206,17 @@ config: {}
   # https://docs.drone.io/server/reference/drone-gitee-skip-verify/
   # DRONE_GITEE_SKIP_VERIFY: ""
 
-  # DRONE_GITHUB_CLIENT_SECRET
-  # String value configures the GitHub oauth client secret. This is used to
-  # authorize access to GitHub on behalf of a Drone user.
-  # https://docs.drone.io/server/reference/drone-github-client-secret/
-  # DRONE_GITHUB_CLIENT_SECRET: ""
-
   # DRONE_GITHUB_CLIENT_ID
   # String value configures the GitHub OAuth client id. This is used to
   # authorize access to GitHub on behalf of a Drone user.
   # https://docs.drone.io/server/reference/drone-github-client-id/
   # DRONE_GITHUB_CLIENT_ID: ""
+
+  # DRONE_GITHUB_CLIENT_SECRET
+  # String value configures the GitHub oauth client secret. This is used to
+  # authorize access to GitHub on behalf of a Drone user.
+  # https://docs.drone.io/server/reference/drone-github-client-secret/
+  # DRONE_GITHUB_CLIENT_SECRET: ""
 
   # DRONE_GITHUB_SCOPE
   # String value provides a comma-separated list of OAuth scopes.
@@ -391,6 +398,13 @@ config: {}
   # This feature requires Drone server version 1.10.0 or higher.
   # https://docs.drone.io/server/reference/drone-starlark-enabled/
   # DRONE_STARLARK_ENABLED: ""
+
+  # DRONE_STARLARK_STEP_LIMIT
+  # Integer value. Sets the maximum number of steps that a starlark
+  # configuration can generate. The default is 50000. This feature requires
+  # Drone server version 2.2.1 or higher.
+  # https://docs.drone.io/server/reference/drone-starlark-step-limit/
+  # DRONE_STARLARK_STEP_LIMIT: ""
 
   # DRONE_STASH_CONSUMER_KEY
   # String value configures your Bitbucket Server consumer key.

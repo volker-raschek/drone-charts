@@ -41,6 +41,7 @@ be the options passed via the `--set` flag of the `helm install` command.
 | `config.DRONE_CRON_INTERVAL`                            | [Documentation](https://docs.drone.io/server/reference/drone-cron-interval)               |
 | `config.DRONE_DATABASE_DATASOURCE`                      | [Documentation](https://docs.drone.io/server/reference/drone-database-datasource)         |
 | `config.DRONE_DATABASE_DRIVER`                          | [Documentation](https://docs.drone.io/server/reference/drone-database-driver)             |
+| `config.DRONE_DATABASE_MAX_CONNECTIONS`                 | [Documentation](https://docs.drone.io/server/reference/drone_database-max-connections)    |
 | `config.DRONE_DATABASE_SECRET`                          | [Documentation](https://docs.drone.io/server/reference/drone-database-secret)             |
 | `config.DRONE_GIT_ALWAYS_AUTH`                          | [Documentation](https://docs.drone.io/server/reference/drone-git-always-auth)             |
 | `config.DRONE_GIT_PASSWORD`                             | [Documentation](https://docs.drone.io/server/reference/drone-git-password)                |
@@ -52,6 +53,7 @@ be the options passed via the `--set` flag of the `helm install` command.
 | `config.DRONE_GITEE_REDIRECT_URL`                       | [Documentation](https://docs.drone.io/server/reference/drone-gitee-redirect-url)          |
 | `config.DRONE_GITEE_SCOPE`                              | [Documentation](https://docs.drone.io/server/reference/drone-gitee-scope)                 |
 | `config.DRONE_GITEE_SKIP_VERIFY`                        | [Documentation](https://docs.drone.io/server/reference/drone-gitee-skip-verify)           |
+| `config.DRONE_GITHUB_CLIENT_ID`                         | [Documentation](https://docs.drone.io/server/reference/drone-github-client-id)            |
 | `config.DRONE_GITHUB_CLIENT_SECRET`                     | [Documentation](https://docs.drone.io/server/reference/drone-github-client-secret)        |
 | `config.DRONE_GITHUB_SCOPE`                             | [Documentation](https://docs.drone.io/server/reference/drone-github-scope)                |
 | `config.DRONE_GITHUB_SERVER`                            | [Documentation](https://docs.drone.io/server/reference/drone-github-server)               |
@@ -81,6 +83,7 @@ be the options passed via the `--set` flag of the `helm install` command.
 | `config.DRONE_SERVER_PROXY_HOST`                        | [Documentation](https://docs.drone.io/server/reference/drone-server-proxy-host)           |
 | `config.DRONE_SERVER_PROXY_PROTO`                       | [Documentation](https://docs.drone.io/server/reference/drone-server-proxy-proto)          |
 | `config.DRONE_STARLARK_ENABLED`                         | [Documentation](https://docs.drone.io/server/reference/drone-starlark-enabled)            |
+| `config.DRONE_STARLARK_STEP_LIMIT`                      | [Documentation](https://docs.drone.io/server/reference/drone-starlark-step-limit)         |
 | `config.DRONE_STASH_CONSUMER_KEY`                       | [Documentation](https://docs.drone.io/server/reference/drone-stash-consumer-key)          |
 | `config.DRONE_STASH_PRIVATE_KEY`                        | [Documentation](https://docs.drone.io/server/reference/drone-stash-private-key)           |
 | `config.DRONE_STASH_SERVER`                             | [Documentation](https://docs.drone.io/server/reference/drone-stash-server)                |
