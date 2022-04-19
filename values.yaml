@@ -522,7 +522,11 @@ config: {}
   # https://docs.drone.io/server/reference/drone-webhook-skip-verify/
   # DRONE_WEBHOOK_SKIP_VERIFY: ""
 
+serviceAccount:
+  annotations: {}
+
 service:
+  annotations: {}
   type: ClusterIP
   port: 80
 
