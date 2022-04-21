@@ -12,8 +12,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: {{ .Values.config.DRONE_SERVER_PROTO | default "http" }}
       protocol: TCP
-      name: http
+      name: {{ .Values.config.DRONE_SERVER_PROTO | default "http" }}
   selector:
     {{- include "drone.selectorLabels" . | nindent 4 }}

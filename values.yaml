@@ -575,3 +575,35 @@ persistence:
   labels: {}
   annotation: {}
   # storageClass:
+
+# extra volumes for the pod
+extraVolumes: {}
+# The following example mount the same secret, which contains tls certificates
+# under different names. Each volume mount contains only selected items of the
+# secret. This make it easier to place the items on different locations inside the
+# container filesystem via extraVolumeMounts.
+# - name: custom-ca-anchor
+#   secret:
+#     secretName: drone-custom-tls-certificates
+#     items:
+#     - key: ca.crt
+#       path: ca.crt
+#       mode: 0444
+# - name: custom-tls-certificates
+#   secret:
+#     secretName: drone-custom-tls-certificates
+#     items:
+#     - key: tls.key
+#       path: tls.key
+#       mode: 0400
+#     - key: tls.crt
+#       path: tls.crt
+#       mode: 0444
+
+extraVolumeMounts: {}
+# The following example follows the example of extraVolumes and mounts the
+# volumes to the corresponding paths in the container filesystem.
+# - name: custom-ca-anchor
+#   mountPath: /usr/local/share/ca-certificates
+# - name: custom-tls-certificates
+#   mountPath: /etc/drone/tls
