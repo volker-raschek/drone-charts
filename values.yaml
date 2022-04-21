@@ -527,6 +527,12 @@ serviceAccount:
 
 service:
   annotations: {}
+  # externalIPs: []
+  # externalTrafficPolicy: "Cluster"
+  # loadBalancerClass: ""
+  # loadBalancerIP: ""
+  # loadBalancerSourceRanges: []
+  # internalTrafficPolicy: "Cluster"
   type: ClusterIP
   port: 80
 
@@ -568,12 +574,12 @@ affinity: {}
 # persistence is only required when config.DATABASE_DRIVER is sqlite3 or
 # undefined.
 persistence:
+  annotation: {}
   # existingClaim:
   size: 5Gi
   accessModes:
   - ReadWriteOnce
   labels: {}
-  annotation: {}
   # storageClass:
 
 # extra volumes for the pod
