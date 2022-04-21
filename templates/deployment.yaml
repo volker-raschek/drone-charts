@@ -26,6 +26,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          livenessProbe:
+            httpGet:
+              scheme: {{ .Values.config.DRONE_SERVER_PROTO | upper | default "HTTP" }}
+              path: /healthz
+              port: {{ .Values.config.DRONE_SERVER_PROTO | default "http" }}
           ports:
           - name: http
             containerPort: 80
@@ -33,6 +38,11 @@ spec:
           - name: https
             containerPort: 443
             protocol: TCP
+          readinessProbe:
+            httpGet:
+              scheme: {{ .Values.config.DRONE_SERVER_PROTO | upper | default "HTTP" }}
+              path: /healthz
+              port: {{ .Values.config.DRONE_SERVER_PROTO | default "http" }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.config.DRONE_DATABASE_DRIVER | default "sqlite3" | eq "sqlite3" }}
