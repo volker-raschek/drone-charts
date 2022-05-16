@@ -533,6 +533,8 @@ service:
   # loadBalancerIP: ""
   # loadBalancerSourceRanges: []
   # internalTrafficPolicy: "Cluster"
+  name: http
+  targetPort: 80
   type: ClusterIP
   port: 80
 
