@@ -2,8 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
-
 image:
   repository: docker.io/drone/drone
   pullPolicy: IfNotPresent
@@ -18,10 +16,12 @@ podAnnotations: {}
 
 podPriorityClassName: ""
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -29,7 +29,8 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-config: {}
+config:
+  {}
   # DRONE_BITBUCKET_CLIENT_ID
   # String value. Configures the Bitbucket OAuth client id. This is used to
   # authorize access to Bitbucket on behalf of a Drone user.
@@ -546,16 +547,17 @@ ingress:
     # cert-manager.io/issuer:
     # kubernetes.io/tls-acme: "true"
   hosts:
-  - host: "your-hostname"
-    paths:
-    - path: /
-      pathType: ImplementationSpecific
+    - host: "your-hostname"
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls:
-  - secretName: "your-tls-secret"
-    hosts:
-    - "your-hostname"
+    - secretName: "your-tls-secret"
+      hosts:
+        - "your-hostname"
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -581,7 +583,7 @@ persistence:
   # existingClaim:
   size: 5Gi
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   labels: {}
   # storageClass:
 
