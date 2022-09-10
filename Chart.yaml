@@ -7,11 +7,12 @@ appVersion: "2.12.1"
 icon: https://readme.drone.io/logo.svg
 
 keywords:
-- git
+- continuous-delivery
+- continuous-deployment
+- continuous-integration
 - drone
 - drone-runner
-- ci
-- cd
+- git
 
 sources:
 - https://github.com/volker-raschek/drone-charts
