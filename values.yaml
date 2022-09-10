@@ -576,6 +576,7 @@ affinity: {}
 # persistence is only required when config.DATABASE_DRIVER is sqlite3 or
 # undefined.
 persistence:
+  enabled: true
   annotation: {}
   # existingClaim:
   size: 5Gi

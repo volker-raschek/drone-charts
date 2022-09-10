@@ -1,3 +1,4 @@
+{{- if .Values.persistence.enabled -}}
 {{ if and (.Values.config.DRONE_DATABASE_DRIVER | default "sqlite3" | eq "sqlite3") (not .Values.persistence.existingClaim) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -15,3 +16,4 @@ spec:
   storageClassName: {{ .Values.persistence.storageClass | quote }}
   {{- end }}
 {{- end }}
+{{- end -}}
