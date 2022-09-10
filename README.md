@@ -4,12 +4,11 @@
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/volker-raschek)](https://artifacthub.io/packages/search?repo=volker-raschek)
 
 This is an inofficial helm chart for [drone](https://github.com/drone/drone) and
-should replace the official unmainted helm chart
-[repository](https://github.com/drone/charts). The official does not support
-version `v2` of drone.
+was created because the official helmet chart was not maintained for a long
+time - [Issue](https://github.com/drone/charts/issues/46).
 
-This helm chart can be found on [artifacthub.io](https://artifacthub.io/) and
-can be installed via helm.
+This helm chart is maintained by contributors and myself. It is listed on
+[artifacthub.io](https://artifacthub.io/) and can be installed via helm:
 
 ```bash
 helm repo add volker.raschek https://charts.cryptic.systems/volker.raschek
@@ -20,7 +19,17 @@ helm install drone volker.raschek/drone
 
 All [configuration options](https://docs.drone.io/server/reference/) can be
 defined in the `values.yml` file below the `config` section. Alternatively can
-be the options passed via the `--set` flag of the `helm install` command.
+be the options passed via the `--set` flag of the `helm install` command. For
+example:
+
+```bash
+helm install drone volker.raschek/drone \
+  --set config.DRONE_RPC_SECRET-${DRONE_RPC_SECRET} \
+  --set config.DRONE_GITHUB_CLIENT_ID=${DRONE_GITHUB_CLIENT_ID} \
+  --set config.DRONE_GITHUB_CLIENT_SECRET=${DRONE_GITHUB_CLIENT_SECRET}
+```
+
+### List of config options
 
 | value                                                   | reference                                                                                 |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
