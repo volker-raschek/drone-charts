@@ -11,8 +11,8 @@ This helm chart is maintained by contributors and myself. It is listed on
 [artifacthub.io](https://artifacthub.io/) and can be installed via helm:
 
 ```bash
-helm repo add volker.raschek https://charts.cryptic.systems/volker.raschek
-helm install drone volker.raschek/drone
+helm repo add drone https://charts.cryptic.systems/drone
+helm install drone drone/drone
 ```
 
 ## Customization
@@ -23,7 +23,7 @@ be the options passed via the `--set` flag of the `helm install` command. For
 example:
 
 ```bash
-helm install drone volker.raschek/drone \
+helm install drone drone/drone \
   --set config.DRONE_RPC_SECRET-${DRONE_RPC_SECRET} \
   --set config.DRONE_GITHUB_CLIENT_ID=${DRONE_GITHUB_CLIENT_ID} \
   --set config.DRONE_GITHUB_CLIENT_SECRET=${DRONE_GITHUB_CLIENT_SECRET}
