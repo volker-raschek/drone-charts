@@ -10,8 +10,8 @@ time - [Issue](https://github.com/drone/charts/issues/46).
 This helm chart is maintained by contributors and myself. It is listed on
 [artifacthub.io](https://artifacthub.io/) and can be installed via helm:
 
-> :warning: The repository has been changed and causes error messages when
-> interacting with the old repository definition. Please remove the chart repo
+> The repository has been changed and causes error messages when interacting
+> with the old repository definition. Please remove the chart repo
 > `volker.raschek` and replace it with `drone`.
 
 ```bash
