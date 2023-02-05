@@ -96,6 +96,7 @@ helm install drone drone/drone \
 | `config.DRONE_SERVER_PROXY_HOST`                        | [Documentation](https://docs.drone.io/server/reference/drone-server-proxy-host)           |
 | `config.DRONE_SERVER_PROXY_PROTO`                       | [Documentation](https://docs.drone.io/server/reference/drone-server-proxy-proto)          |
 | `config.DRONE_STARLARK_ENABLED`                         | [Documentation](https://docs.drone.io/server/reference/drone-starlark-enabled)            |
+| `config.DRONE_STARLARK_SIZE_LIMIT`                      | [Documentation](https://github.com/harness/drone/pull/3291)                               |
 | `config.DRONE_STARLARK_STEP_LIMIT`                      | [Documentation](https://docs.drone.io/server/reference/drone-starlark-step-limit)         |
 | `config.DRONE_STASH_CONSUMER_KEY`                       | [Documentation](https://docs.drone.io/server/reference/drone-stash-consumer-key)          |
 | `config.DRONE_STASH_PRIVATE_KEY`                        | [Documentation](https://docs.drone.io/server/reference/drone-stash-private-key)           |
