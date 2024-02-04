@@ -5,6 +5,11 @@ metadata:
   labels:
     {{- include "drone.labels" . | nindent 4 }}
 spec:
+  {{- if .Values.config.DRONE_DATABASE_DRIVER | default "sqlite3" | eq "sqlite3" }}
+  replicas: 1
+  {{- else }}
+  replicas: {{ .Values.replicas | default 1 }}
+  {{- end }}
   selector:
     matchLabels:
       {{- include "drone.selectorLabels" . | nindent 6 }}

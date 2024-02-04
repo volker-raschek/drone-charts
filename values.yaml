@@ -19,6 +19,10 @@ podPriorityClassName: ""
 podSecurityContext: {}
   # fsGroup: 2000
 
+# Increasing the amount of replicas has no effect, when `DRONE_DATABASE_DRIVER`
+# is set to sqlite3.
+replicas: 1
+
 securityContext: {}
   # capabilities:
   #   drop:
