@@ -85,7 +85,7 @@ steps:
 
 - name: release-helm-chart
   commands:
-  - grep --only-matching 'version:"${DRONE_TAG}"' Chart.yaml || echo "Version ${DRONE_TAG} not found in Chart.yaml"
+  - grep -o 'version:"${DRONE_TAG}"' Chart.yaml || echo "Version ${DRONE_TAG} not found in Chart.yaml"
   - helm repo add drone https://charts.cryptic.systems/drone
   - helm package --version ${DRONE_TAG} .
   - helm cm-push ${DRONE_REPO_NAME%-charts}-${DRONE_TAG}.tgz drone
