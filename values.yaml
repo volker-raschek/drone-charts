@@ -23,13 +23,7 @@ podSecurityContext: {}
 # is set to sqlite3.
 replicas: 1
 
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+affinity: {}
 
 config: {}
   # DRONE_BITBUCKET_CLIENT_ID
@@ -524,22 +518,6 @@ config: {}
   # https://docs.drone.io/server/reference/drone-webhook-skip-verify/
   # DRONE_WEBHOOK_SKIP_VERIFY: ""
 
-serviceAccount:
-  annotations: {}
-
-service:
-  annotations: {}
-  # externalIPs: []
-  # externalTrafficPolicy: "Cluster"
-  # loadBalancerClass: ""
-  # loadBalancerIP: ""
-  # loadBalancerSourceRanges: []
-  # internalTrafficPolicy: "Cluster"
-  name: http
-  targetPort: 80
-  type: ClusterIP
-  port: 80
-
 ingress:
   enabled: false
   className: "nginx"
@@ -557,6 +535,20 @@ ingress:
       hosts:
         - "your-hostname"
 
+livenessProbe:
+  httpGet:
+    scheme: HTTP
+    path: /healthz
+    port: http
+
+nodeSelector: {}
+
+readinessProbe:
+  httpGet:
+    scheme: HTTP
+    path: /healthz
+    port: http
+
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -569,11 +561,31 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-nodeSelector: {}
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+serviceAccount:
+  annotations: {}
+
+service:
+  annotations: {}
+  # externalIPs: []
+  # externalTrafficPolicy: "Cluster"
+  # loadBalancerClass: ""
+  # loadBalancerIP: ""
+  # loadBalancerSourceRanges: []
+  # internalTrafficPolicy: "Cluster"
+  name: http
+  targetPort: 80
+  type: ClusterIP
+  port: 80
 
 tolerations: []
-
-affinity: {}
 
 # persistence is only required when config.DATABASE_DRIVER is sqlite3 or
 # undefined.
