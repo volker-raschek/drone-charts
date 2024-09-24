@@ -535,6 +535,8 @@ ingress:
       hosts:
         - "your-hostname"
 
+initContainers: []
+
 livenessProbe:
   httpGet:
     scheme: HTTP
